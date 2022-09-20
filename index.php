@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Superglobalus kintamieji FILES, SESSION, SERVER</title>
+    <title>Superglobalus kintamieji FILES, SESSION, COOKIES</title>
 </head>
 <body>
     <!-- 1. methodas turi buti butinai POST. GET neveiks !!!! -->
@@ -38,7 +38,7 @@
         //kaip tame aplanke failas vadinsis
 
         // random string
-        // base64 kodavimas
+        // base64 + ikelimo data kodavimas
         // kad tikriname kokie failai yra ikelti(duomenu bazes)
         // sha256 - 256 bitu kodas(duomenu), kuris yra unikalus, dvi skirtingos reiksmes gali buti uzkoduotos vienodai
 
@@ -59,17 +59,20 @@
         //failo pletini
         $file_extension =  $file_name_array[1];
         
-        $random_words = ["a","b","c","d","e","f","g"];
+        // $random_words = ["a","b","c","d","e","f","g"];
 
-        //rand() - sugeneruoja atsitiktini skaiciu
+        // //rand() - sugeneruoja atsitiktini skaiciu
 
-        $random_string = "";
-        for($i = 0; $i <=22; $i++) {
-            $random_number = rand(0,count($random_words)-1); // 0, 1, 2, 3, 4
-            // $random_string = $random_string . $random_words[$random_number];
-            $random_string .= $random_words[$random_number];
+        // $random_string = "";
+        // for($i = 0; $i <=22; $i++) {
+        //     $random_number = rand(0,count($random_words)-1); // 0, 1, 2, 3, 4
+        //     // $random_string = $random_string . $random_words[$random_number];
+        //     $random_string .= $random_words[$random_number];
 
-        }
+        // }
+        $time = time();
+            //time dabartinis laikas sekundemis nuo 1970
+        $random_string = $file_name_array[0].$time;
 
 
         $file_name_generated = $random_string .".".$file_extension;
